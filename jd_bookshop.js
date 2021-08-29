@@ -29,9 +29,7 @@ let ADD_CART = false
 ADD_CART = $.isNode() ? (process.env.PURCHASE_SHOPS ? process.env.PURCHASE_SHOPS : ADD_CART) : ($.getdata("ADD_CART") ? $.getdata("ADD_CART") : ADD_CART);
 // 加入购物车开关，与东东小窝共享
 
-let inviteCodes = [
-  '1a2d83e75cff4568871a871b5d5b19c8@b31f0a4d6f51484ba33bd0c8a760ec2c',
-]
+let inviteCodes = []
 
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -73,12 +71,12 @@ if ($.isNode()) {
     }
   }
 })()
-    .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
-    })
-    .finally(() => {
-      $.done();
-    })
+  .catch((e) => {
+    $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done();
+  })
 
 async function jdBeauty() {
   $.score = 0
@@ -273,7 +271,7 @@ function accessLogWithAD() {
         if (err) {
           console.log(`${$.name} API请求失败，请检查网路重试`)
         } else {
-          //      if (safeGet(data)) {
+    //      if (safeGet(data)) {
           if($.isNode())
             for (let ck of resp['headers']['set-cookie']) {
               cookie = `${cookie}; ${ck.split(";")[0]};`
@@ -283,7 +281,7 @@ function accessLogWithAD() {
               cookie = `${cookie}; ${ck.split(";")[0]};`
             }
           }
-          //   }
+       //   }
         }
       } catch (e) {
         $.logErr(e, resp)

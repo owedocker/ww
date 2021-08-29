@@ -7,17 +7,17 @@
 ============Quantumultx===============
 [task_local]
 #赚30元
-1 1,12 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js, tag=赚30元, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
+1 0,1,12 * * * https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js, tag=赚30元, img-url=https://raw.githubusercontent.com/Orz-3/mini/master/Color/jd.png, enabled=true
 
 ================Loon==============
 [Script]
-cron "1 1,12 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js tag=赚30元
+cron "1 0,1,12 * * *" script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js tag=赚30元
 
 ===============Surge=================
-赚30元 = type=cron,cronexp="1 1,12 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js
+赚30元 = type=cron,cronexp="1 0,1,12 * * *",wake-system=1,timeout=3600,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js
 
 ============小火箭=========
-赚30元 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js, cronexpr="1 1,12 * * *", timeout=3600, enable=true
+赚30元 = type=cron,script-path=https://raw.githubusercontent.com/jiulan/platypus/main/scripts/jd_earn30.js, cronexpr="1 0,1,12 * * *", timeout=3600, enable=true
 
  */
 const $ = new Env("赚30元")
