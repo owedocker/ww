@@ -393,11 +393,11 @@ def start():
                 # 'pin': '%E9%82%B1%E5%B8%85%E7%9A%AE%E7%9A%AE%E8%99%BE',
                 'userclient': '29',
                 'orderId': da["oid"],
-                'otype': random.randint(5, 5),
-                'DSR1': random.randint(5, 5),
-                'DSR2': random.randint(5, 5),
-                'DSR3': random.randint(5, 5),
-                'DSR4': random.randint(5, 5),
+                'otype': random.randint(3, 5),
+                'DSR1': random.randint(3, 5),
+                'DSR2': random.randint(3, 5),
+                'DSR3': random.randint(3, 5),
+                'DSR4': random.randint(3, 5),
                 'g_login_type': '0',
                 'g_ty': 'ls'
             }
