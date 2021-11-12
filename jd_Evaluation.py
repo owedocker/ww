@@ -284,7 +284,7 @@ def generation(pname, _class=0, _type=1):
         if _type == 1:
             # return 5, '东西很好，孩子很喜欢，每天晚上不抱着碎觉，就完全睡不着。买的时候看见评论里都说好就买了，看到发货的时候挺激动的，到了之后，满怀期待一激动得从快递员那里拿回了寝室，试一下，结果挺不错啊！而且客服小姐姐也特别的好，很有礼貌，客服小姐姐也是秒回我的疑问呢，嘻嘻，下次还会回购哒。'
             comments = datas[_type]
-            return random.randint(3, 5), (
+            return random.rrandint(5, 5), (
                     random.choice(comments["开始"]) + random.choice(comments["中间"]) + random.choice(comments["结束"])).replace("$", name)
         elif _type == 0:
             comments = datas[_type]
@@ -333,11 +333,11 @@ def start():
                 # 'pin': '%E9%82%B1%E5%B8%85%E7%9A%AE%E7%9A%AE%E8%99%BE',
                 'userclient': '29',
                 'orderId': da["oid"],
-                'otype': random.randint(3, 5),
-                'DSR1': random.randint(3, 5),
-                'DSR2': random.randint(3, 5),
-                'DSR3': random.randint(3, 5),
-                'DSR4': random.randint(3, 5),
+                'otype': random.rrandint(5, 5),
+                'DSR1': random.rrandint(5, 5),
+                'DSR2': random.rrandint(5, 5),
+                'DSR3': random.rrandint(5, 5),
+                'DSR4': random.rrandint(5, 5),
                 'g_login_type': '0',
                 'g_ty': 'ls'
             }
@@ -357,7 +357,7 @@ def start():
                 req = requests.post(url, headers=he, data=data)
                 if req.json()['errMsg'] == 'success':
                     #printf("\t普通评价成功！！")
-                    Cent[ce]['评价'] += 1 
+                    Cent[ce]['评价'] += 1
                 else:
                     printf("\t普通评价失败了.......")
                     printf(data)
@@ -366,7 +366,7 @@ def start():
                 se_req = requests.get(se_url, headers=he, params=se_data)
                 if se_req.json()['errMsg'] == 'success':
                     #printf("\t服务评价成功！！")
-                    Cent[ce]['服务评价'] += 1 
+                    Cent[ce]['服务评价'] += 1
                 else:
                     printf("\t服务评价失败了.......")
                     printf(se_data)
@@ -408,7 +408,7 @@ def start():
                     req = requests.post(url, headers=headers, data=data)
                     if req.json()['data']['result'] != {}:
                         #printf("\t晒单成功！！！")
-                        Cent[ce]['晒单'] += 1 
+                        Cent[ce]['晒单'] += 1
                     else:
                         printf("\t晒单失败...")
                         printf(req.json())
@@ -423,7 +423,7 @@ def start():
     cookiesList, userNameList, pinNameList = getCk.iscookie()
 
     for i,ck,user,pin in zip(range(1,len(cookiesList)+1),cookiesList,userNameList,pinNameList):
-        
+
         printf(f"** 开始[账号{i}]-{user} **")
         headers = {
             'cookie': ck,
@@ -433,7 +433,7 @@ def start():
         printf('开始评价与服务评价！')
         try:
             ordinary(headers, f'账号{i}[{user}]')
-            
+
         except Exception as e:
                 printf("评价出错了")
                 printf(e)
@@ -441,7 +441,7 @@ def start():
         printf('等待10秒,继续')
         time.sleep(10)
         printf('开始晒单了')
-        
+
         try:
             sunbw(headers, f'账号{i}[{user}]')
         except Exception as e:
@@ -451,7 +451,7 @@ def start():
         time.sleep(10)
     msg = ''
     for i in Cent:
-        msg += f'{i}\n{Cent[i]}\n\n' 
+        msg += f'{i}\n{Cent[i]}\n\n'
     send('京东全自动评价',msg)
 
 
